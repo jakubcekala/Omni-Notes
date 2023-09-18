@@ -1,0 +1,114 @@
+--------- beginning of system
+--------- beginning of main
+09-08 20:43:46.602  6414  6438 I AUTOMATION: [INFO] Test is starting - createEmptyTextNote(it.feio.android.omninotes.espresso.tests.NotesCreatingTest)
+09-08 20:43:46.602  6414  6438 I AUTOMATION: [INFO] Setting up test
+09-08 20:43:46.602  6414  6438 I AUTOMATION: [INFO] Cleaning app data
+09-08 20:43:46.778  6414  6438 I AUTOMATION: [STEP] Verifying page title - Title: Notes
+09-08 20:43:46.780  6414  6438 I AUTOMATION: [STEP] Clicking on FAB button
+09-08 20:43:47.081  6414  6438 I AUTOMATION: [STEP] Verifying FAB menu is opened - is opened: true
+09-08 20:43:47.091  6414  6438 I AUTOMATION: [STEP] Clicking on note button
+09-08 20:43:48.056  6414  6438 I AUTOMATION: [STEP] Verifying detail note screen
+09-08 20:43:48.069  6414  6438 I AUTOMATION: [STEP] Verifying toolbar buttons for text note
+09-08 20:43:48.079  6414  6438 I AUTOMATION: [STEP] Clicking on Back button
+09-08 20:43:48.955  6414  6438 I AUTOMATION: [STEP] Verifying top message - Top message: CAN'T SAVE AN EMPTY NOTE
+09-08 20:43:48.960  6414  6438 I AUTOMATION: [INFO] Test is finished - createEmptyTextNote(it.feio.android.omninotes.espresso.tests.NotesCreatingTest)
+09-08 20:43:49.098  6414  6438 I AUTOMATION: [INFO] Test is starting - editExistingNoteContentAddTagToNote(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:43:49.098  6414  6438 I AUTOMATION: [INFO] Setting up test
+09-08 20:43:49.098  6414  6438 I AUTOMATION: [INFO] Cleaning app data
+09-08 20:43:49.288  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Title, Content: Example note content
+09-08 20:43:49.343  6414  6438 I AUTOMATION: [STEP] Selecting note from list - Index: 0
+09-08 20:43:50.369  6414  6438 I AUTOMATION: [STEP] Entering title - Title
+09-08 20:43:50.381  6414  6438 I AUTOMATION: [STEP] Entering content note - Test hashtag
+09-08 20:43:50.381  6414  6438 I AUTOMATION: #test
+09-08 20:43:50.409  6414  6438 I AUTOMATION: [STEP] Clicking on Back button
+09-08 20:43:51.165  6414  6438 I AUTOMATION: [STEP] Selecting note from list - Index: 0
+09-08 20:43:52.022  6414  6438 I AUTOMATION: [STEP] Clicking on Tag button
+09-08 20:43:52.490  6414  6438 I AUTOMATION: [STEP] Checking if tag is visible. Tag: test, amount: 1
+09-08 20:43:52.492  6414  6438 I AUTOMATION: [STEP] Clicking on Ok button
+09-08 20:43:52.818  6414  6438 I AUTOMATION: [INFO] Test is finished - editExistingNoteContentAddTagToNote(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:43:52.958  6414  6438 I AUTOMATION: [INFO] Test is starting - removeExistingGroup(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:43:52.958  6414  6438 I AUTOMATION: [INFO] Setting up test
+09-08 20:43:52.958  6414  6438 I AUTOMATION: [INFO] Cleaning app data
+09-08 20:43:53.205  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Title, Content: Example note content
+09-08 20:43:53.225  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Note with group title, Content: Note with group content
+09-08 20:43:53.229  6414  6438 I AUTOMATION: [INFO] Setting category to note - Note: Note with group title, Category: null
+09-08 20:43:53.229  6414  6438 I AUTOMATION: [INFO] Creating cateogry in the database - Category: null
+09-08 20:43:53.235  6414  6438 I AUTOMATION: [STEP] Selecting note from list - Index: 0
+09-08 20:43:54.202  6414  6438 I AUTOMATION: [STEP] Verifying if tag marker is displayed - isDisplayed: true
+09-08 20:43:54.205  6414  6438 I AUTOMATION: [STEP] Clicking on Category button
+09-08 20:43:54.611  6414  6438 I AUTOMATION: [STEP] Clicking on Remove category button
+09-08 20:43:54.984  6414  6438 I AUTOMATION: [STEP] Verifying if tag marker is displayed - isDisplayed: false
+09-08 20:43:54.987  6414  6438 I AUTOMATION: [STEP] Clicking on Back button
+09-08 20:43:56.275  6414  6438 I AUTOMATION: [STEP] Checking marker on position - Position: 0, isDisplayed: false
+09-08 20:43:56.285  6414  6438 I AUTOMATION: [INFO] Test is finished - removeExistingGroup(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:43:56.436  6414  6438 I AUTOMATION: [INFO] Test is starting - viewGroupManagementDialog(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:43:56.436  6414  6438 I AUTOMATION: [INFO] Setting up test
+09-08 20:43:56.436  6414  6438 I AUTOMATION: [INFO] Cleaning app data
+09-08 20:43:56.546  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Title, Content: Example note content
+09-08 20:43:56.550  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Note with group title, Content: Note with group content
+09-08 20:43:56.553  6414  6438 I AUTOMATION: [INFO] Setting category to note - Note: Note with group title, Category: null
+09-08 20:43:56.553  6414  6438 I AUTOMATION: [INFO] Creating cateogry in the database - Category: null
+09-08 20:43:56.563  6414  6438 I AUTOMATION: [STEP] Selecting note from list - Index: 0
+09-08 20:43:57.581  6414  6438 I AUTOMATION: [STEP] Verifying if tag marker is displayed - isDisplayed: true
+09-08 20:43:57.582  6414  6438 I AUTOMATION: [STEP] Clicking on Category button
+09-08 20:43:57.934  6414  6438 I AUTOMATION: [STEP] Checking group dialog elements
+09-08 20:43:57.961  6414  6438 I AUTOMATION: [STEP] Checking existing group name: Cat
+09-08 20:43:57.963  6414  6438 I AUTOMATION: [INFO] Test is finished - viewGroupManagementDialog(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:43:58.097  6414  6438 I AUTOMATION: [INFO] Test is starting - editExistingNote(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:43:58.097  6414  6438 I AUTOMATION: [INFO] Setting up test
+09-08 20:43:58.097  6414  6438 I AUTOMATION: [INFO] Cleaning app data
+09-08 20:43:58.192  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Title, Content: Example note content
+09-08 20:43:58.201  6414  6438 I AUTOMATION: [STEP] Verifying page title - Title: Notes
+09-08 20:43:58.256  6414  6438 I AUTOMATION: [STEP] Selecting note from list - Index: 0
+09-08 20:43:59.193  6414  6438 I AUTOMATION: [STEP] Entering title - Updated title
+09-08 20:43:59.203  6414  6438 I AUTOMATION: [STEP] Entering content note - Updated note content
+09-08 20:43:59.219  6414  6438 I AUTOMATION: [STEP] Clicking on reminder button
+09-08 20:43:59.634  6414  6438 I AUTOMATION: [STEP] Clicking on time picker button
+09-08 20:43:59.945  6414  6438 I AUTOMATION: [STEP] Checking note data - Title: Updated title, Content: Updated note content, is reminder: true
+09-08 20:43:59.949  6414  6438 I AUTOMATION: [STEP] Clicking on Back button
+09-08 20:44:01.168  6414  6438 I AUTOMATION: [STEP] Verifying top message - Top message: NOTE UPDATED
+09-08 20:44:01.171  6414  6438 I AUTOMATION: [STEP] Verifying checklist item - Title: Updated title, Content: Updated note content, is reminder: true
+09-08 20:44:01.181  6414  6438 I AUTOMATION: [INFO] Test is finished - editExistingNote(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:44:01.334  6414  6438 I AUTOMATION: [INFO] Test is starting - viewExistingNote(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:44:01.335  6414  6438 I AUTOMATION: [INFO] Setting up test
+09-08 20:44:01.335  6414  6438 I AUTOMATION: [INFO] Cleaning app data
+09-08 20:44:01.506  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Title, Content: Example note content
+09-08 20:44:01.511  6414  6438 I AUTOMATION: [STEP] Verifying page title - Title: Notes
+09-08 20:44:01.572  6414  6438 I AUTOMATION: [STEP] Selecting note from list - Index: 0
+09-08 20:44:02.618  6414  6438 I AUTOMATION: [STEP] Verifying detail note screen
+09-08 20:44:02.629  6414  6438 I AUTOMATION: [STEP] Verifying toolbar buttons for text note
+09-08 20:44:02.641  6414  6438 I AUTOMATION: [STEP] Checking note data - Title: Title, Content: Example note content, is reminder: false
+09-08 20:44:02.647  6414  6438 I AUTOMATION: [INFO] Test is finished - viewExistingNote(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:44:02.778  6414  6438 I AUTOMATION: [INFO] Test is starting - addNewGroup(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:44:02.778  6414  6438 I AUTOMATION: [INFO] Setting up test
+09-08 20:44:02.778  6414  6438 I AUTOMATION: [INFO] Cleaning app data
+09-08 20:44:02.906  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Title, Content: Example note content
+09-08 20:44:02.912  6414  6438 I AUTOMATION: [STEP] Selecting note from list - Index: 0
+09-08 20:44:03.935  6414  6438 I AUTOMATION: [STEP] Clicking on Category button
+09-08 20:44:04.303  6414  6438 I AUTOMATION: [STEP] Clicking on Add category button
+09-08 20:44:04.703  6414  6438 I AUTOMATION: [STEP] Entering category title
+09-08 20:44:05.579  6414  6438 I AUTOMATION: [STEP] Clicking on Ok button
+09-08 20:44:06.114  6414  6438 I AUTOMATION: [STEP] Verifying top message - CATEGORY SAVED
+09-08 20:44:06.117  6414  6438 I AUTOMATION: [STEP] Waiting until top message disappears
+09-08 20:44:07.551  6414  6438 I AUTOMATION: [STEP] Verifying if tag marker is displayed - isDisplayed: true
+09-08 20:44:07.551  6414  6438 I AUTOMATION: [STEP] Clicking on Back button
+09-08 20:44:08.421  6414  6438 I AUTOMATION: [STEP] Checking marker on position - Position: 0, isDisplayed: true
+09-08 20:44:08.430  6414  6438 I AUTOMATION: [INFO] Test is finished - addNewGroup(it.feio.android.omninotes.espresso.tests.NotesViewingTest)
+09-08 20:44:08.592  6414  6438 I AUTOMATION: [INFO] Test is starting - removeNoteFromArchive(it.feio.android.omninotes.espresso.tests.NotesRemovingTest)
+09-08 20:44:08.592  6414  6438 I AUTOMATION: [INFO] Setting up test
+09-08 20:44:08.592  6414  6438 I AUTOMATION: [INFO] Cleaning app data
+09-08 20:44:08.743  6414  6438 I AUTOMATION: [INFO] Adding text note to the database - Title: Title, Content: Example note content
+09-08 20:44:08.747  6414  6438 I AUTOMATION: [INFO] Archiving the note - Note: Title
+09-08 20:44:08.750  6414  6438 I AUTOMATION: [STEP] Verifying page title - Title: Notes
+09-08 20:44:08.814  6414  6438 I AUTOMATION: [STEP] Opening side drawer
+09-08 20:44:09.687  6414  6438 I AUTOMATION: [STEP] Clicking on Archive button
+09-08 20:44:10.518  6414  6438 I AUTOMATION: [STEP] Verifying checklist item - Title: Title, Content: Example note content, is reminder: false
+09-08 20:44:10.531  6414  6438 I AUTOMATION: [STEP] Swiping left on the item - Item index: 0
+09-08 20:44:11.254  6414  6438 I AUTOMATION: [STEP] Verifying top message - Top message: NOTE(S) TRASHED
+09-08 20:44:11.257  6414  6438 I AUTOMATION: [STEP] Verifying undo message bar - Text: 1 trashed
+09-08 20:44:11.263  6414  6438 I AUTOMATION: [STEP] Waiting until top message disappears
+09-08 20:44:12.708  6414  6438 I AUTOMATION: [STEP] Opening side drawer
+09-08 20:44:13.757  6414  6438 I AUTOMATION: [STEP] Clicking on Trash button
+09-08 20:44:14.613  6414  6438 I AUTOMATION: [STEP] Verifying page title - Title: Trash
+09-08 20:44:14.616  6414  6438 I AUTOMATION: [STEP] Verifying checklist item - Title: Title, Content: Example note content, is reminder: false
+09-08 20:44:14.638  6414  6438 I AUTOMATION: [INFO] Test is finished - removeNoteFromArchive(it.feio.android.omninotes.espresso.tests.NotesRemovingTest)

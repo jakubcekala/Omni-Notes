@@ -1,0 +1,89 @@
+
+def reportsDirectory = "$buildDir/reports/androidTests/connected/flavors/alpha"
+def screenshotsDirectory = "/sdcard/Pictures/omniNotes/screenshots/"
+
+def attachScreenshotsAndDataTask = task('attachScreenshotsAndData', group: 'reporting') {
+    doFirst {
+        def failureScreenshotsDirectory = new File(reportsDirectory, 'failures')
+
+        if (!failureScreenshotsDirectory.exists()) {
+            println 'Could not find screenshot failures. Skipping...'
+            return
+        }
+
+        def properties_versionCode = project.properties['VERSION_CODE']
+        def properties_versionName = project.properties['VERSION_NAME']
+
+        failureScreenshotsDirectory.eachFile { failedTestClassDirectory ->
+            def failedTestClassName = failedTestClassDirectory.name
+
+            failedTestClassDirectory.eachFile { failedTestFile ->
+                def failedTestName = failedTestFile.name
+                def failedTestNameWithoutExtension = failedTestName.take(failedTestName.lastIndexOf('.'))
+                def failedTestClassJunitReportFile = new File(reportsDirectory, "${failedTestClassName}.html")
+
+                if (!failedTestClassJunitReportFile.exists()) {
+                    println "Could not find JUnit report file for test class '${failedTestClassJunitReportFile}'"
+                    return
+                }
+
+                def failedTestJunitReportContent = failedTestClassJunitReportFile.text
+
+                def patternToFind = "<h3 class=\"failures\">${failedTestNameWithoutExtension}</h3>"
+                def patternToReplace = "${patternToFind} " +
+                        "<h3>Version code: ${properties_versionCode}</h3>" +
+                        "<h3>Version name: ${properties_versionName}</h3>" +
+                        "<h3>Branch name: ${getCurrentGitBranch()}</h3>" +
+                        "<img src=\"failures/${failedTestClassName}/${failedTestName}\" width =\"360\" />"
+
+                failedTestJunitReportContent = failedTestJunitReportContent.replaceAll(patternToFind, patternToReplace)
+
+                failedTestClassJunitReportFile.write(failedTestJunitReportContent)
+            }
+        }
+    }
+}
+
+def removeScreenshotsTask = task('removeScreenshots', type: Exec) {
+    executable "${android.getAdbExe().toString()}"
+    args 'shell', 'rm', '-r', screenshotsDirectory
+    finalizedBy {
+        attachScreenshotsAndDataTask
+    }
+}
+
+def createScreenshotDirectoryTask = task('createScreenshotDirectory', type: Exec, group: 'reporting') {
+    executable "${android.getAdbExe().toString()}"
+    args 'shell', 'mkdir', '-p', screenshotsDirectory
+}
+
+def fetchScreenshotsTask = task('fetchScreenshots', type: Exec, group: 'reporting') {
+    executable "${android.getAdbExe().toString()}"
+    args 'pull', screenshotsDirectory + '.', reportsDirectory
+    finalizedBy {
+        removeScreenshotsTask
+    }
+    dependsOn {
+        createScreenshotDirectoryTask
+    }
+    doFirst {
+        new File(reportsDirectory).mkdirs()
+    }
+}
+
+def getCurrentGitBranch() {
+    def gitBranch = "Unknown branch"
+    try {
+        gitBranch = System.getenv("GIT_BRANCH") ?: grgit.branch.current.fullName
+    } catch (e) {
+    }
+    return gitBranch
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name.contains('AndroidTest')) {
+        task.finalizedBy {
+            fetchScreenshotsTask
+        }
+    }
+}

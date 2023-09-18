@@ -38,6 +38,10 @@ if (signConfigExists) {
 android {
     compileSdkVersion Integer.parseInt(project.TARGET_SDK)
 
+    adbOptions {
+        installOptions '-g', '-r'
+    }
+
     defaultConfig {
         applicationId project.PACKAGE
         minSdkVersion project.MIN_SDK
@@ -47,6 +51,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true
+        testInstrumentationRunnerArguments clearPackageData: 'true'
     }
 
     buildFeatures {
@@ -117,10 +122,20 @@ android {
         disable 'MissingTranslation'
     }
     namespace 'it.feio.android.omninotes'
+
+    project.gradle.taskGraph.whenReady {
+        android.productFlavors.all { flavor ->
+            def flavorName = flavor.name.substring(0, 1).toUpperCase() + flavor.name.substring(1)
+            "connected${flavorName}DebugAndroidTest" {
+                ignoreFailures = true
+            }
+        }
+    }
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.powermock:powermock:1.6.5'
     testImplementation 'org.powermock:powermock-module-junit4:1.6.5'
     testImplementation 'org.powermock:powermock-api-mockito:1.6.5'
@@ -128,14 +143,18 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test:rules:1.5.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'com.azimolabs.conditionwatcher:conditionwatcher:0.2'
+
     androidTestImplementation('androidx.test.espresso:espresso-intents:3.5.0') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:3.0.2') {
+    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:3.5.0') {
         exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude module: 'recyclerview-v7'
     }
+    androidTestImplementation 'info.cukes:cucumber-android:1.2.5'
+    androidTestImplementation 'info.cukes:cucumber-picocontainer:1.2.5'
 
     debugImplementation('com.squareup.leakcanary:leakcanary-android:2.10') {
         exclude group: "com.android.support"
@@ -238,6 +257,7 @@ android.productFlavors.each { flavor ->
 }
 
 apply plugin: 'jacoco'
+apply from: 'ui-test-report.gradle'
 jacoco {
     toolVersion = jacocoVersion
 }
